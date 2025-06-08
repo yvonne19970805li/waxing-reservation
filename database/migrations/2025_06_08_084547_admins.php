@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->string('account', 20)->unique();
-            $table->string('password', 20);
+            $table->string('password', 70);
             $table->string('name', 20);
             $table->integer('status')->comment('狀態')->default(0);
             $table->timestamps();

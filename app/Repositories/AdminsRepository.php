@@ -6,7 +6,7 @@ use App\Models\Admins;
 
 class AdminsRepository
 {
-    //
+
 }
 
 ?>
