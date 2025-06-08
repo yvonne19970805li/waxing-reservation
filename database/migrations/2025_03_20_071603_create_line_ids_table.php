@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('line_ids', function (Blueprint $table) {
             $table->id();
-            $table->string('name',10)->comment('名稱')->nullable();
-            $table->string('email')->comment('信箱');
-            $table->string('password','')->comment('密碼');
-            $table->string('line_id')->comment('登入id')->unique()->nullable();
+            $table->string('line_id')->comment('登入id')->unique()->default('');
+            $table->string('line_name',50)->comment('line名稱')->default('');
+            $table->string('name',50)->comment('本名')->default(''); 
+            $table->string('phone')->comment('電話')->default('');
+            $table->string('sexual')->comment('性別')->default('');
+            $table->string('email')->comment('信箱')->default('');
             $table->timestamps();
         });
     }

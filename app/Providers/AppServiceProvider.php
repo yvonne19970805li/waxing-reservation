@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use App\Repositories\LineAuthRepository;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -14,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(LineAuthRepository::class);
+
     }
 
     /**

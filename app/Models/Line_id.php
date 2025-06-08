@@ -9,10 +9,13 @@ class Line_id extends Model
     protected $table = 'line_ids';
 
     protected $fillable = [
-        '$name',
-        '$email',
-        '$password',
-        '$line_id'
+        'name',
+        'phone',
+        'line_name',
+        'email',
+        'password',
+        'line_id',
+        
     ];
 
     protected $hidden = [
