@@ -2,15 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Models\reservationRecord;
+use App\Models\ReservationRecords;
 
-class ReservationRepository
+class ReservationRecordsRepository
 {
-
-
     static function Add($validate)
     {
-        reservationRecord::create([
+        ReservationRecords::create([
             'line_id' => $validate['line_id'],
             'appointmentDate_id' => $validate['appointmentDate_id'],
             'appointmentDate' => $validate['appointmentDate'],

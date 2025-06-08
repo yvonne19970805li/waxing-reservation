@@ -2,6 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\AppointmentDate;
+use App\Models\ReservationTimes;
 
 ?>
