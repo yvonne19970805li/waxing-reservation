@@ -14,10 +14,11 @@ class AdminsRepository
         return Admins::where('account' , $account)->first();
     }
 
-    //  抓出對應帳號的密碼回傳
+    //抓出對應帳號的密碼回傳
     static function Login($account)
     {
         Admins::where('account', $account)
             ->value('password');
     }
 }
+?>

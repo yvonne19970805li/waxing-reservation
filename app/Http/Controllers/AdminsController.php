@@ -32,3 +32,8 @@ class AdminsController extends Controller
         }
     }
 }
+
+
+
+
+?>
