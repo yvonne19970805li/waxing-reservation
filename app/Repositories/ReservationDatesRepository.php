@@ -7,14 +7,14 @@ use Illuminate\Support\Collection;
 
 class ReservationDatesRepository{
     // 查詢資料 (依照Id)
-    public static function GetById($id): ?ReservationDates {
-        return ReservationDates::where('id' , $id)->first();
-    }
+    //public static function GetById($id): ?ReservationDates {
+    //    return ReservationDates::where('id' , $id)->first();
+    //}
 
     // 查詢資料 (依照日期)
-    public static function GetByDate($date): Collection {
-        return ReservationDates::where('date' , $date)->get();
-    }
+    //public static function GetByDate($date): Collection {
+    //    return ReservationDates::where('date' , $date)->get();
+    //}
 
     // 新增
     public static function Create($date) {

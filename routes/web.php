@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ReservationDatesController;
+use App\Http\Controllers\AdminsController;
 
 // 會員相關 API
 Route::prefix('member')->group(function () {
@@ -13,14 +15,17 @@ Route::prefix('member')->group(function () {
     Route::put('/edit', [MemberController::class, 'Edit']);
 });
 
+Route::get('/date',[ReservationDatesController::class,'Creates']);
+
 // 管理員用 API
 Route::prefix('admin')->group(function () {
     // 登入
-    Route::get('/login', function () {
-    });
+    Route::get('/login', [AdminsController::class, 'AdminLogin']);
     // 登出
     Route::get('/logout', function () {
     });
     // 新增服務項目
     // 新增服務項目細項
+
+    
 });
