@@ -8,5 +8,7 @@ class ReservationDates extends Model
 {
     protected $table = 'reservation_dates';
 
-    protected $fillable = [];
+    protected $fillable = [
+        'date',
+        'text'];
 }
