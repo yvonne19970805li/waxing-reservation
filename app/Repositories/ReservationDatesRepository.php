@@ -5,9 +5,14 @@ namespace App\Repositories;
 use App\Models\ReservationDates;
 
 class ReservationDatesRepository{
-    //將日期存到資料表內
-    static function SaveDate($date){
-        ReservationDates::create(['date' => $date]);
+    // 新增
+    public static function Create($payload){
+        ReservationDates::create($payload);
+    }
+
+    // 新增 (可多筆)
+    public static function Creates($payload){
+        ReservationDates::insert($payload);
     }
 }
 ?>
