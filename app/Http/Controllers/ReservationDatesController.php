@@ -9,9 +9,10 @@ class ReservationDatesController extends Controller
 {
     
     /**
-     * 接收日期資料，儲存選擇的日期至資料表
+     * 新增預約日期
+     * 可一次新增多筆
      */
-    public function SaveDate(Request $request){
+    public function Creates(Request $request){
         // 取得參數
         $dates = $request->input('dates', []);
         // 整理資料到陣列
