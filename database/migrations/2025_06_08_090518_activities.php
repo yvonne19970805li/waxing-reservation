@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('activity')->comment('活動項目')->default('');
             $table->integer('price')->comment('價格')->default(0);
-            $table->text('remark')->comment('備註');
+            $table->string('remark')->comment('備註')->default('');
             $table->timestamps();
         });
     }

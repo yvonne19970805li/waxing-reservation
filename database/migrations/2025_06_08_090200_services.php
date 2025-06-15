@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('part_id')->comment('部位id')->index();
             $table->integer('part_detail_id')->comment('細項id')->index();
             $table->integer('price')->comment('價格');
-            $table->text('remark')->comment('備註');
+            $table->string('remark')->comment('備註')->default('');
             $table->timestamps();
         });
 

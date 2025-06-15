@@ -11,9 +11,11 @@ class ReservationDatesRepository
     public static function EditDate($params)
     {
         foreach ($params as $date) {
-            ReservationDates::firstOrCreate(['date' => $date['date']]);
+            ReservationDates::firstOrCreate(
+                ['date' => $date],
+                ['date' => $date],
+            );
         };
-    
     }
 
      // 查詢資料 (依照Id)

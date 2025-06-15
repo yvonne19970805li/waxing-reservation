@@ -34,19 +34,10 @@ class ReservationDatesController extends Controller
     public function Creates(Request $request){
         // 取得參數
         $dates = $request->input('dates', []);
-        // 整理資料到陣列
-        $params = [];
-        foreach ($dates as $date) {
-            array_push($params, ['date' => $date]);
-        };
-        dd ($params);
-        
         // 新增資料
-        ReservationDatesRepository::EditDate($params);
+        ReservationDatesRepository::EditDate($dates);
         return response()->json(['message' => '成功']);
-
-
-}
+    }
 }
 
 ?>

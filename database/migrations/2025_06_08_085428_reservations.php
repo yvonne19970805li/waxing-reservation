@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('time')->comment('預約時間');
             $table->integer('services_id')->comment('服務項目id')->index();
             $table->integer('price')->comment('價格');
-            $table->text('remark')->comment('備註');
+            $table->string('remark')->comment('備註')->default('');
             $table->timestamps();
         });
 
@@ -29,7 +29,7 @@ return new class extends Migration
         Schema::create('reservation_dates', function (Blueprint $table) {
             $table->id();
             $table->date('date')->comment('預約日期');
-            $table->text('remark')->comment('備註');
+            $table->string('remark')->comment('備註')->default('');
             $table->timestamps();
         });
 
@@ -38,7 +38,7 @@ return new class extends Migration
             $table->id();
             $table->integer('date_id')->comment('預約時間id')->index();
             $table->string('time')->comment('預約時間');
-            $table->text('remark')->comment('備註');
+            $table->string('remark')->comment('備註')->default('');
             $table->timestamps();
         });
     }
