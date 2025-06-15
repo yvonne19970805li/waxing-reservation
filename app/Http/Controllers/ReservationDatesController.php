@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class ReservationDatesController extends Controller
 {
     /**
-     * 管理員選擇要開啟的日期、新增日期 這邊都不用了==
+     * 管理員選擇要開啟的日期、新增日期 這邊都不用了
      * public function ChooseDate(Request $request){
         //回傳指定月份全部天數
         $month = $request->input('month','');
@@ -34,20 +34,18 @@ class ReservationDatesController extends Controller
     public function Creates(Request $request){
         // 取得參數
         $dates = $request->input('dates', []);
-        
         // 整理資料到陣列
         $params = [];
         foreach ($dates as $date) {
             array_push($params, ['date' => $date]);
         };
-        
-        // 沒資料就不新增
-        //if (count($params) == 0) {
-        //    return;
-        //}
+        dd ($params);
         
         // 新增資料
-        ReservationDatesRepository::Creates($params);
+        ReservationDatesRepository::EditDate($params);
+        return response()->json(['message' => '成功']);
+
+
 }
 }
 

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ReservationDatesController;
 use App\Http\Controllers\AdminsController;
+use App\Repositories\ReservationDatesRepository;
 
 // 會員相關 API
 Route::prefix('member')->group(function () {
@@ -15,7 +16,9 @@ Route::prefix('member')->group(function () {
     Route::put('/edit', [MemberController::class, 'Edit']);
 });
 
-Route::get('/date',[ReservationDatesController::class,'Creates']);
+//編輯日期
+Route::post('/EditDate' , [ReservationDatesController::class, 'Creates']);
+
 
 // 管理員用 API
 Route::prefix('admin')->group(function () {

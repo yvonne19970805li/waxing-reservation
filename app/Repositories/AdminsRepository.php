@@ -11,9 +11,8 @@ class AdminsRepository
     // public static function GetByAccount($account): ?Admins {
     //     return Admins::where('account' , $account)->first();
     // }
-    public static function GetByAccount($account): ?Admins {
-        return Admins::whereRaw('Binary account = ?' , $account)->first();
+    public static function GetByAccount($account): ?Admins
+    {
+        return Admins::whereRaw('Binary account = ?', $account)->first();
     }
-
 }
-?>

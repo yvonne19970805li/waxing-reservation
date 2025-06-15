@@ -20,6 +20,7 @@ class AdminsController extends Controller
 
         // 查詢帳號資料
         $info = AdminsRepository::GetByAccount($account);
+        
         // 檢查是否有資料
         if (is_null($info)) {
             return response()->json([
