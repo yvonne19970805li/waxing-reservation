@@ -17,7 +17,9 @@ Route::prefix('member')->group(function () {
 });
 
 //編輯日期
-Route::post('/EditDate' , [ReservationDatesController::class, 'Creates']);
+Route::post('/EditDate' , [ReservationDatesController::class, 'Create']);
+Route::delete('/DeleteDate' , [ReservationDatesController::class, 'Delete']);
+Route::get('/SearchDate' , [ReservationDatesController::class, 'Search']);
 
 
 // 管理員用 API
