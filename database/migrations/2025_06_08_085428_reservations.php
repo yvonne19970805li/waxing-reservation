@@ -28,6 +28,7 @@ return new class extends Migration
         // 預約日期
         Schema::create('reservation_dates', function (Blueprint $table) {
             $table->id();
+            $table->integer('time_id')->comment('預約時間id')->nullable();
             $table->date('date')->comment('預約日期');
             $table->string('remark')->comment('備註')->nullable();
             $table->softDeletes();
@@ -37,9 +38,10 @@ return new class extends Migration
         // 預約時間
         Schema::create('reservation_times', function (Blueprint $table) {
             $table->id();
-            $table->integer('date_id')->comment('預約時間id')->index();
-            $table->string('time')->comment('預約時間');
-            $table->string('remark')->comment('備註')->default('');
+            $table->integer('date_id')->comment('預約日期id')->nullable();
+            $table->string('time')->comment('預約時間')->default('');
+            $table->boolean('status')->comment('開放狀態')->default(true);
+            $table->string('remark')->comment('備註')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

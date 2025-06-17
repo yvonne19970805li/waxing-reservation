@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ReservationDatesController;
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\ReservationTimesController;
 
 // 會員相關 API
 Route::prefix('member')->group(function () {
@@ -16,10 +17,27 @@ Route::prefix('member')->group(function () {
     Route::put('/edit', [MemberController::class, 'Edit']);
 });
 
-//編輯日期
-Route::post('/EditDate' , [ReservationDatesController::class, 'Create']);
-Route::delete('/DeleteDate' , [ReservationDatesController::class, 'Delete']);
-Route::get('/SearchDate' , [ReservationDatesController::class, 'Search']);
+//預約日期
+Route::prefix('Date')->group(function () {
+    //新增可預約日期
+    Route::post('/Edit' , [ReservationDatesController::class, 'Create']);
+    //刪除預約日期
+    Route::delete('/Delete' , [ReservationDatesController::class, 'Delete']);
+    //搜尋可預約日期
+    Route::get('/Search' , [ReservationDatesController::class, 'Search']);
+    
+});
+
+//預約時間
+Route::prefix('Time')->group(function () {
+    //新增可預約時間
+    Route::post('/Edit' , [ReservationTimesController::class, 'Add']);
+    //儲存要開放的時間
+    Route::put('/Open' , [ReservationTimesController::class, 'Save']);
+    //搜尋開放時段
+    Route::get('/Search' , [ReservationTimesController::class, 'Search']);
+
+});
 
 
 // 管理員用 API

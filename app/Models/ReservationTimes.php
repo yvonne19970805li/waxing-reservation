@@ -11,5 +11,5 @@ class ReservationTimes extends Model
 
     protected $table = 'reservation_times';
 
-    protected $fillable = [];
+    protected $fillable = [ 'time' , 'remark',];
 }
