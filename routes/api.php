@@ -6,6 +6,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ReservationDatesController;
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ReservationTimesController;
+use App\Http\Controllers\ReservationOverallsController;
+use App\Models\ReservationOveralls;
 
 // 會員相關 API
 Route::prefix('member')->group(function () {
@@ -37,6 +39,13 @@ Route::prefix('Time')->group(function () {
     //搜尋開放時段
     Route::get('/Search' , [ReservationTimesController::class, 'Search']);
 
+});
+
+//預約時段總覽
+Route::prefix('Overall')->group(function () {
+    //新增可預約時+日
+    Route::post('/Add' , [ReservationOverallsController::class, 'Add']);
+    Route::get('Search' , [ReservationOverallsController::class, 'Search']);
 });
 
 

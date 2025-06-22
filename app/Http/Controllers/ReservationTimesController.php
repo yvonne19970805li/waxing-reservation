@@ -13,7 +13,7 @@ class ReservationTimesController extends Controller
      */
     public function Add(Request $request){
         //取得參數(字串)
-        $time = $request->input('time',[]);
+        $time = $request->input('time');
         //判斷時段是否已存在，否則新增至資料表
        $check = ReservationTimesRepository::CheckTime($time);
         if ($check){
@@ -25,7 +25,7 @@ class ReservationTimesController extends Controller
 
     /**
      * 儲存開放預約時間(Admin)
-     * status為1=開放(true) 、0=關閉(false)
+     * status為1預設=開放(true) 、0=關閉(false)
      */
     public function Save(Request $request){
         //取得要儲存的時間

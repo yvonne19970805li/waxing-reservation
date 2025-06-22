@@ -13,7 +13,9 @@ class ReservationTimesRepository
      */
     public static function CheckTime($params)
     {
-        return ReservationTimes::select('time')->where('time', $params)->first();
+        return ReservationTimes::select('time')
+            ->where('time', $params)
+            ->first();
     }
 
     /**
@@ -21,9 +23,7 @@ class ReservationTimesRepository
      */
     public static function EditTime($params)
     {
-        foreach ($params as $time) {
-            ReservationTimes::create(['time' => $time]);
-        };
+        ReservationTimes::create(['time' => $params]);
     }
 
     /**
@@ -31,21 +31,22 @@ class ReservationTimesRepository
      */
     public static function SaveTime($params)
     {
-        ReservationTimes::select('time')
-        ->where('time', $params)
-        ->update(['status' => true]);
+        foreach ($params as $times) {
+            ReservationTimes::select('time')
+                ->where('time', $times)
+                ->update(['status' => true]);
+        };
     }
 
     /**
      * 搜尋開放時段
      */
-    public static function SearchTime(){
+    public static function SearchTime()
+    {
         $AllTime = ReservationTimes::select('time')
-        ->where('status' , true)
-        ->get();
+            ->where('status', true)
+            ->get();
 
         return $AllTime;
     }
-
-
 }

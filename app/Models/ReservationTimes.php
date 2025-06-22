@@ -11,5 +11,11 @@ class ReservationTimes extends Model
 
     protected $table = 'reservation_times';
 
-    protected $fillable = [ 'time' , 'remark',];
+    protected $fillable = ['time', 'remark',];
+    // app/Models/ReservationTimes.php
+
+    public function overalls()
+    {
+        return $this->hasMany(ReservationOveralls::class, 'time_id');
+    }
 }

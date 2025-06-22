@@ -45,6 +45,17 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
+        //開發可預約的總表
+        Schema::create('reservation_overalls', function (Blueprint $table) {
+            $table->id();
+            $table->integer('date_id')->comment('預約日期id')->nullable();
+            $table->integer('time_id')->comment('預約時間id')->nullable();
+            $table->string('remark')->comment('備註')->default('');
+            $table->boolean('status')->comment('開放狀態')->default(true);
+            $table->timestamps();
+        }); 
+
     }
 
     /**
@@ -55,5 +66,7 @@ return new class extends Migration
         Schema::dropIfExists('reservation_records');
         Schema::dropIfExists('reservation_dates');
         Schema::dropIfExists('reservation_times');
+        Schema::dropIfExists('reservation_overalls');
+
     }
 };
